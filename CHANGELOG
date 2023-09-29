@@ -1,0 +1,45 @@
+1.0	Release notes (8/19/2019):
+	- Added file header with description and directions
+	- Improved annotations within script for interpretation of code
+	- Removed extraneous code that wasn't being used
+	- Introduced version numbers (officially non-beta?)
+1.1	Release notes (9/11/2019):
+	- Corrected comment describing structure of results array
+	- Modified montage slice label font size to account for pixel dimensions
+	- Updated spaced indents to tabbed
+	- Change montage overlay color from default yellow to green
+	- Clarified description of the script regarding edge-finding routine
+1.2	Release notes (9/16/2019):
+	- Corrected description of speck position array (left/right confusion)
+	- Added check for correct phantom orientation (R CC orientation)
+	- Fixed run errors with missing semicolons
+	- Change overlay color for background ROI to cyan
+1.3	Release notes (11/18/2019):
+	- Remove Roi.remove commands (compatibility issues with vanilla ImageJ)
+1.4	Release notes (11/19/2019):
+	- Overhaul of speck location search
+		- Use Find Maxima command to return locations of specks
+		- Sort the locations to the correct order and use for the max value routine
+1.5	Release notes (05/04/2020):
+	- Change prominence threshold in Find Maxima... routine
+1.6	Release notes (07/09/2020):
+	- Fixed error in insert edge search (used hprofile in vprofile routine)
+1.7	Release notes (07/14/2020):
+	- Added ability to change the number of slices (nn variable)
+1.8	Release notes (03/04/2021):
+	- Modified location of hprofile line to avoid chest wall zeros during min search
+1.9	Release notes (08/30/2021):
+	- Perform iterative maxima search to ensure correct count (6)
+		- Adjust noise threshold in Find Maxima... routine based on result
+	- Modify order of operations for initial image processing
+		- Crop image as before (1/3 of width from chest, 1/3 of height from midline)		
+		- Use slice thickness from DICOM header to position at 34 mm from phantom base
+		- Perform edge search at this slice position, crop to largest speck group
+		- Perform max search on largest speck group only (exclude wax edges)
+	- Move nn variable to top for easy modification
+	- Change results to tab delimited to facilite pasting into excel
+	- Copy the results to clipboard after printing to log to reduce clicks
+	- Add dialog box to tell user the results were copied, clicking OK copies montage
+	- Dialog box allows user to close all windows when clicking "OK"
+	- Increased font size on slice labels in montage
+	- Improve annotations throughout
