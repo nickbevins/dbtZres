@@ -389,8 +389,8 @@ for (j = 0; j < 2*nn+1; j++){		// run a for loop over the slices of interest
 // Shorten the two mean measurements to one decimal with d2s command (double to string)
 printres = newArray(2*nn+1);
 for (j = 0; j < 2*nn+1; j++) {
-	printres[j] = results[j*10]+" \t"+results[j*10+1]+" \t"+results[j*10+2]+" \t"+results[j*10+3]+
-	" \t"+results[j*10+4]+" \t"+results[j*10+5]+" \t"+results[j*10+6]+" \t"+results[j*10+7]+
+	printres[j] = d2s(results[j*10],0)+" \t"+d2s(results[j*10+1],0)+" \t"+d2s(results[j*10+2],0)+" \t"+d2s(results[j*10+3],0)+
+	" \t"+d2s(results[j*10+4],0)+" \t"+d2s(results[j*10+5],0)+" \t"+d2s(results[j*10+6],0)+" \t"+d2s(results[j*10+7],0)+
 	" \t"+d2s(results[j*10+8],1)+" \t"+d2s(results[j*10+9],1);
 }
 
@@ -431,7 +431,7 @@ if (montCheck) {
 File.saveString(String.join(printres,"\n"), resfile);
 // Save the montage
 selectImage(montageID);
-saveAs("png",montfile);
+saveAs("jpg",montfile);
 
 // Call the debug window to see the variables
 //debug("dump");
