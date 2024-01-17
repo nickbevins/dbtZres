@@ -389,9 +389,9 @@ for (j = 0; j < 2*nn+1; j++){		// run a for loop over the slices of interest
 // Shorten the two mean measurements to one decimal with d2s command (double to string)
 printres = newArray(2*nn+1);
 for (j = 0; j < 2*nn+1; j++) {
-	printres[j] = d2s(results[j*10],0)+" \t"+d2s(results[j*10+1],0)+" \t"+d2s(results[j*10+2],0)+" \t"+d2s(results[j*10+3],0)+
-	" \t"+d2s(results[j*10+4],0)+" \t"+d2s(results[j*10+5],0)+" \t"+d2s(results[j*10+6],0)+" \t"+d2s(results[j*10+7],0)+
-	" \t"+d2s(results[j*10+8],1)+" \t"+d2s(results[j*10+9],1);
+	printres[j] = d2s(results[j*10],0)+"\t"+d2s(results[j*10+1],0)+"\t"+d2s(results[j*10+2],0)+"\t"+d2s(results[j*10+3],0)+
+	"\t"+d2s(results[j*10+4],0)+"\t"+d2s(results[j*10+5],0)+"\t"+d2s(results[j*10+6],0)+"\t"+d2s(results[j*10+7],0)+
+	"\t"+d2s(results[j*10+8],1)+"\t"+d2s(results[j*10+9],1);
 }
 
 // Display a montage of the nn slices with the ROIs overlayed
@@ -428,7 +428,7 @@ if (montCheck) {
 }
 
 // Save the array, using new line as the delimiter
-File.saveString(String.join(printres,"\n"), resfile);
+File.saveString(String.join(printres,"\r\n"), resfile);
 // Save the montage
 selectImage(montageID);
 saveAs("jpg",montfile);
